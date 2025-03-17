@@ -1,7 +1,7 @@
 // Importaciones
 import React, { useState, useEffect } from "react";
 import { Container, Button } from "react-bootstrap";
-import { db } from "../database/firebaseconfig";
+import { db } from "../../database/firebaseconfig";
 import {
   collection,
   getDocs,
@@ -12,10 +12,10 @@ import {
 } from "firebase/firestore";
 
 // Importaciones de componentes personalizados
-import TablaCategorias from "../components/Categorias/TablaCategorias";
-import ModalRegistroCategoria from "../components/Categorias/ModalRegistroCategoria";
-import ModalEdicionCategoria from "../components/Categorias/ModalEdicionCategoria";
-import ModalEliminacionCategoria from "../components/Categorias/ModalEliminacionCategoria";
+import TablaCategorias from "../categorias/TablaCategorias";;
+import ModalRegistroCategoria from "../categorias/ModalRegistroCategoria";
+import ModalEdicionCategoria from "../categorias/ModalEdicionCategoria";
+import ModalEliminacionCategoria from "../categorias/ModalEliminacionCategoria";
 
 
 const Categorias = () => {

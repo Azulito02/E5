@@ -3,8 +3,8 @@ import { AuthProvider } from "./database/authcontext";
 import ProtectedRoute from "./components/ProtectedRoute"; 
 import Login from './views/Login'
 import Encabezado from "./components/Encabezado";
-import Inicio from "./views/Inicio";
-import Categorias from "./views/Categorias"; //Importación de Categorias
+import Inicio from "../src/components/views/Inicio";
+import Categorias from "../src/components/views/categorias"; //Importación de Categorias
 
 import './App.css'
 
