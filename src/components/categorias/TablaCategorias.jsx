@@ -2,7 +2,12 @@ import React from "react";
 import { Table, Button } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
+
+
+
 const TablaCategorias = ({ categorias, openEditModal, openDeleteModal }) => {
+
+  
   return (
     <Table striped bordered hover responsive>
       <thead>

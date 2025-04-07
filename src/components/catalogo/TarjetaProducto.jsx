@@ -20,6 +20,8 @@ const TarjetaProducto = ({ producto, onEdit }) => {
           </Button>
         </Card.Body>
       </Card>
+
+      
     </Col>
   );
 };
