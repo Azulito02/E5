@@ -92,6 +92,15 @@ const Encabezado = () => {
               </Nav.Link>
 
               <Nav.Link
+  onClick={() => handleNavigate("/clima")}
+  className={isCollapsed ? "color-texto-marca" : "text-white"}
+>
+  {isCollapsed ? <i className="bi-cloud-sun-fill me-2"></i> : null}
+  <strong>Clima</strong>
+
+</Nav.Link>
+
+              <Nav.Link
                 onClick={() => handleNavigate("/catalogo")}
                 className={isCollapsed ? "color-texto-marca" : "text-white"}
               >
@@ -118,6 +127,8 @@ const Encabezado = () => {
                 >
                   Iniciar Sesión
                 </Nav.Link>
+
+                
               )}
             </Nav>
           </Offcanvas.Body>
