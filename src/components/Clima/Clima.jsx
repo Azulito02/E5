@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import FormularioUbicacion from "../components/clima/FormularioUbicacion";
-import TablaClima from "../components/clima/TablaClima";
+import FormularioUbicacion from "./FormularioUbicacion";
+import TablaClima from "./TablaClima";
 
 const Clima = () => {
   const [ubicacion, setUbicacion] = useState({

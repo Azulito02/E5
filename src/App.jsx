@@ -7,7 +7,7 @@ import Inicio from "./views/Inicio";
 import Categorias from "./components/views/categorias";
 import Productos from "./components/views/Productos";
 import Catalogo from "./components/views/Catalogo";
-import Clima from "./views/Clima";
+import Clima from "./components/Clima/Clima"
 
 import './App.css'
 
