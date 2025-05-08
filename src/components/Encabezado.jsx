@@ -84,6 +84,10 @@ const Encabezado = () => {
                 
               </Nav.Link>
 
+              <Nav.Link onClick={() => handleNavigate("/pronunciacion")} className="text-white">
+            Pronunciacion
+          </Nav.Link>
+
               <Nav.Link
                 onClick={() => handleNavigate("/productos")}
                 className={isCollapsed ? "color-texto-marca" : "text-white"}

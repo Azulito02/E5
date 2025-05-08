@@ -8,6 +8,7 @@ import Categorias from "./components/views/categorias";
 import Productos from "./components/views/Productos";
 import Catalogo from "./components/views/Catalogo";
 import Clima from "./components/Clima/Clima"
+import Pronunciacion from "./components/views/Pronunciacion";
 
 import './App.css'
 
@@ -24,6 +25,7 @@ function App() {
               <Route path="/productos" element={<ProtectedRoute element={<Productos />} />}/>
               <Route path="/Catalogo" element={<ProtectedRoute element={<Catalogo />} />}/>
               <Route path="/clima" element={<ProtectedRoute element={<Clima />} />}/>
+              <Route path="/pronunciacion" element={<ProtectedRoute element={<Pronunciacion />} />}/>
             </Routes>
           </main>
       </Router>
