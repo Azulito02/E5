@@ -3,7 +3,7 @@ import { Table, Button, Image } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Paginacion from "../ordenamiento/Paginacion";
 
-const TablaProductos = ({ productos, openEditModal, openDeleteModal }) => {
+const TablaProductos = ({ productos, openEditModal, openDeleteModal,handleCopy }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5; // Productos por página
   const totalItems = productos.length;
@@ -46,6 +46,9 @@ const TablaProductos = ({ productos, openEditModal, openDeleteModal }) => {
                 >
                   <i className="bi bi-pencil"></i>
                 </Button>
+
+                
+
                 <Button
                   variant="outline-danger"
                   size="sm"
@@ -53,6 +56,26 @@ const TablaProductos = ({ productos, openEditModal, openDeleteModal }) => {
                 >
                   <i className="bi bi-trash"></i>
                 </Button>
+
+                <Button 
+                variant="outline-dark"
+                className="ml-1"
+                slize="sm"
+                onClick={()=> openQRMdal(producto.pdfUrl)}
+                >
+                <i className= "bi bi-qr-code"></i>
+
+                </Button>
+
+                <Button
+                variant="outline-info"
+                slize="sm"
+                onClick={()=> handleCopy(producto)}
+                >
+                <i className="bi bi-clipboard"></i>
+
+                </Button>
+
               </td>
             </tr>
           ))}

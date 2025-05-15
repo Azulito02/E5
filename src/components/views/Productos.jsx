@@ -14,9 +14,12 @@ import TablaProductos from "../productos/TablaProductos";
 import ModalRegistroProducto from "../productos/ModalRegistroProducto"
 import ModalEdicionProducto from "../productos/ModalEdicionProducto";
 import ModalEliminacionProducto from "../productos/ModalEliminacionProducto";
+import ModalQR from "../QR/ModalQR";
 
 const Productos = () => {
   // Estados para manejo de datos
+  const [showQRModal, setShowQRModal] = useState(false);
+  const [selectedUrl, setSelectedUrl] = useState("");
   const [productos, setProductos] = useState([]);
   const [categorias, setCategorias] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -31,6 +34,27 @@ const Productos = () => {
   const [productoEditado, setProductoEditado] = useState(null);
   const [productoAEliminar, setProductoAEliminar] = useState(null);
 
+  //Metodos para el QR
+  const openQRModal = (url) =>{
+    setShowQRModal(url);
+    setSelectedUrl("");
+  }
+
+  const handleCloseQRModal = () => {
+    setShowQRModal(false);
+    selectedUrl("");
+  }
+
+  const handleCopy = (productos) =>{
+    const rowData = `Nombre: ${productos.nombre}\nPrecio: C$${productos.precio}\nCategoria: ${productos.categoria}`;
+    
+
+    navigator.clipboard
+    .writeText(rowData)
+    .then(() =>{
+      console.log("Error el copiar al portapapeles", err);
+    });
+  };
   // Referencia a las colecciones en Firestore
   const productosCollection = collection(db, "productos");
   const categoriasCollection = collection(db, "categorias");
@@ -334,6 +358,8 @@ const Productos = () => {
         productos={productos}
         openEditModal={openEditModal}
         openDeleteModal={openDeleteModal}
+        handleCopy={handleCopy}
+        openQRModal={openQRModal}
       />
       <ModalRegistroProducto
         showModal={showModal}
@@ -358,6 +384,12 @@ const Productos = () => {
         setShowDeleteModal={setShowDeleteModal}
         handleDeleteProducto={handleDeleteProducto}
       />
+
+      <ModalQR
+      show={showQRModal}
+      handleClose={handleCloseQRModal}
+      qrUrl={selectedUrl}
+       />
     </Container>
   );
 };
