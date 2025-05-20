@@ -18,12 +18,14 @@ import ModalRegistroCategoria from "../categorias/ModalRegistroCategoria";
 import ModalEdicionCategoria from "../categorias/ModalEdicionCategoria";
 import ModalEliminacionCategoria from "../categorias/ModalEliminacionCategoria";
 import CuadroBusqueda from "../Busqueda/CuadroBusqueda";
+import ChatIA from "../chat/ChatIA";
 
 
 const Categorias = () => {
   
   // Estados para manejo de datos
   const [categorias, setCategorias] = useState([]);
+  const [showChatModal, setShowChatModal] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -295,13 +297,23 @@ const handleAddCategoria = async () => {
         openEditModal={openEditModal}
         openDeleteModal={openDeleteModal}
       />
-      <ModalRegistroCategoria
-        showModal={showModal}
-        setShowModal={setShowModal}
-        nuevaCategoria={nuevaCategoria}
-        handleInputChange={handleInputChange}
-        handleAddCategoria={handleAddCategoria}
-      />
+
+      {showChatModal && (
+  <ChatIA
+    showChatModal={showChatModal}
+    setShowChatModal={setShowChatModal}
+  />
+)}
+
+     <ModalRegistroCategoria
+  showModal={showModal}
+  setShowModal={setShowModal}
+  nuevaCategoria={nuevaCategoria}
+  handleInputChange={handleInputChange}
+  handleAddCategoria={handleAddCategoria}
+  setShowChatModal={setShowChatModal}
+/>
+
       <ModalEdicionCategoria
         showEditModal={showEditModal}
         setShowEditModal={setShowEditModal}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, Form, Button } from "react-bootstrap";
+import { Modal, Form, Button, Col } from "react-bootstrap";
 
 const ModalRegistroCategoria = ({
   showModal,
@@ -7,6 +7,7 @@ const ModalRegistroCategoria = ({
   nuevaCategoria,
   handleInputChange,
   handleAddCategoria,
+  setShowChatModal
 }) => {
   return (
     <Modal show={showModal} onHide={() => setShowModal(false)}>
@@ -45,6 +46,17 @@ const ModalRegistroCategoria = ({
         <Button variant="primary" onClick={handleAddCategoria}>
           Guardar
         </Button>
+
+  <Col lg={3} md={4} sm={4} xs={5}>
+  <Button
+    className="mb-3"
+    onClick={() => setShowChatModal(true)}
+    style={{ width: "100%" }}
+  >
+    Chat IA
+  </Button>
+</Col>
+
       </Modal.Footer>
     </Modal>
   );

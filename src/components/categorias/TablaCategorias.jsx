@@ -44,6 +44,8 @@ const TablaCategorias = ({ categorias, openEditModal, openDeleteModal }) => {
                 >
                   <i className="bi bi-trash"></i>
                 </Button>
+
+                
               </td>
             </tr>
           ))}
