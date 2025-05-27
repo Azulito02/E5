@@ -2,18 +2,18 @@ import React from "react";
 import { Modal, Form, Button, Image } from "react-bootstrap";
 
 const ModalEdicionProducto = ({
-  showEditModal,
-  setShowEditModal,
-  productoEditado,
-  handleEditInputChange,
-  handleEditImageChange,
-  handleEditProducto,
+  show,
+  onHide,
+  producto,
+  onChange,
+  onImageChange,
+  onSubmit,
   categorias
 }) => {
-  if (!productoEditado) return null;
+  if (!producto) return null;
 
   return (
-    <Modal show={showEditModal} onHide={() => setShowEditModal(false)}>
+    <Modal show={show} onHide={onHide}>
       <Modal.Header closeButton>
         <Modal.Title>Editar Producto</Modal.Title>
       </Modal.Header>
@@ -24,8 +24,8 @@ const ModalEdicionProducto = ({
             <Form.Control
               type="text"
               name="nombre"
-              value={productoEditado.nombre}
-              onChange={handleEditInputChange}
+              value={producto.nombre}
+              onChange={onChange}
             />
           </Form.Group>
           <Form.Group className="mb-3">
@@ -33,16 +33,16 @@ const ModalEdicionProducto = ({
             <Form.Control
               type="number"
               name="precio"
-              value={productoEditado.precio}
-              onChange={handleEditInputChange}
+              value={producto.precio}
+              onChange={onChange}
             />
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Categoría</Form.Label>
             <Form.Select
               name="categoria"
-              value={productoEditado.categoria}
-              onChange={handleEditInputChange}
+              value={producto.categoria}
+              onChange={onChange}
             >
               <option value="">Seleccione una categoría</option>
               {categorias.map((cat) => (
@@ -54,22 +54,22 @@ const ModalEdicionProducto = ({
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Imagen Actual</Form.Label>
-            {productoEditado.imagen && (
-              <Image src={productoEditado.imagen} width="100" className="mb-2" />
+            {producto.imagen && (
+              <Image src={producto.imagen} width="100" className="mb-2" />
             )}
             <Form.Control
               type="file"
               accept="image/*"
-              onChange={handleEditImageChange}
+              onChange={onImageChange}
             />
           </Form.Group>
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={() => setShowEditModal(false)}>
+        <Button variant="secondary" onClick={onHide}>
           Cancelar
         </Button>
-        <Button variant="primary" onClick={handleEditProducto}>
+        <Button variant="primary" onClick={onSubmit}>
           Actualizar
         </Button>
       </Modal.Footer>
